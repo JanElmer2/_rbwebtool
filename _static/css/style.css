@@ -1,0 +1,24 @@
+h1 {
+            color: blue;
+            border: 10px solid black;
+        }
+
+ol {
+            color: green;
+        }
+
+.welcome {
+            color: green;
+        }
+
+#abc {
+            color: red;
+        }
+
+table {
+            border: 1px solid black;
+        }
+
+td, th {
+            border: 1px dashed black;
+        }
