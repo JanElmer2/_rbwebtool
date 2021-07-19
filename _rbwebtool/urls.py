@@ -23,5 +23,7 @@ def HomePage(request):
 urlpatterns = [
     path('', HomePage, name='home'),
     path('admin/', admin.site.urls),
-    path('api/', include('api.urls'))
+    path('api/', include('api.urls')),
+    path('dash_app/', include('dash_app.urls')),
+    path('django_plotly_dash/', include('django_plotly_dash.urls'))
 ]

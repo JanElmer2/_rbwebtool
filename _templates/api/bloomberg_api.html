@@ -2,49 +2,61 @@
 {% load static %}
 
 {% block content %}
-    <h1>Hallo</h1>
-    <h2>Hallo</h2>
-    <h3>Hallo</h3>
-    <h4>Hallo</h4>
-    <h5>Hallo</h5>
-    <h6>Hallo</h6>
 
-    <h1 id="abc">Welcome!</h1>
+<script>
 
-    <h1 class="welcome">Welcome!</h1>
-    <h1 class="welcome">Welcome!</h1>
-    <h1 class="welcome">Welcome!</h1>
+{% block jquery %}
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: {{ labels|safe }},
+        datasets: [{
+            label: '{{ variable|safe}}',
+            data: {{ data|safe}},
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+{% endblock %}
+
+</script>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit", class="btn btn-primary">
+            Submit
+        </button>
+    </form>
 
     <div>
-        This is a div!
+    <canvas id="myChart" width="400" height="100"></canvas>
     </div>
-
-    <ol>
-        <li>Item</li>
-        <li>Item</li>
-        <li>Item</li>
-    </ol>
-
-    <ul>
-        <li>item</li>
-        <li>item</li>
-        <li>item</li>
-    </ul>
-
-    <table>
-        <thead>
-            <th>Dominik</th>
-            <th>Antoine</th>
-            <th>Jan</th>
-            <th>Burhan</th>
-        </thead>
-        <tbody>
-            <td>Grösse</td>
-            <td>1.80</td>
-            <td>1.70</td>
-            <td>1.88</td>
-            <td>1.90</td>
-        </tbody>
-    </table>
 
 {% endblock%}

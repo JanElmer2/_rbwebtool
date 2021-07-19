@@ -51,11 +51,24 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
+            <!-- Nav Item - Bloomberg API -->
             <li class="nav-item active">
                 <a class="nav-link" href="{% url 'bloomberg_api' %}">
                     <i class="fas fa-database"></i>
                     <span>Bloomberg API</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dash App -->
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'dash-app' %}">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dash App</span></a>
             </li>
 
             <!-- Divider -->
@@ -209,6 +222,12 @@
     <!-- Page level custom scripts -->
     <script src="{% static 'js/demo/chart-area-demo.js' %}"></script>
     <script src="{% static 'js/demo/chart-pie-demo.js' %}"></script>
+
+    <script>
+        $(document).ready(function(){
+            {% block jquery %}{% endblock %}
+        })
+    </script>
 
 </body>
 

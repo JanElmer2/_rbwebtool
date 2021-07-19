@@ -1,0 +1,9 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+
+    {% load plotly_dash %}
+    {% plotly_app_bootstrap name='covid_dash' %}
+
+{% endblock %}
